@@ -4,6 +4,7 @@ gem 'rails', '~> 8.0.2', '>= 8.0.2.1'
 
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
+gem 'devise'
 gem 'haml-rails'
 gem 'jsbundling-rails'
 gem 'propshaft'
