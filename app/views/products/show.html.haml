@@ -1,0 +1,13 @@
+.row.justify-content-center
+  .col-8
+    %h1.fs-2.mb-4 #{@product.name} 詳細
+    %dl.row
+      .card.p-3
+        %dt.col-3 商品名
+        %dd.col-9.p-1= @product.name
+
+        %dt.col-3 商品説明
+        %dd.col-9.p-1= @product.description
+
+        %dt.col-3 価格
+        %dd.col-9.p-1= number_to_currency(@product.price)
