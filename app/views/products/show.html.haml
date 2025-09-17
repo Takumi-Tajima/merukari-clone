@@ -1,5 +1,5 @@
 .row.justify-content-center
-  .col-8
+  .col-7
     %h1.fs-2.mb-4 #{@product.name} 詳細
     %dl.row
       .card.p-3
@@ -11,3 +11,7 @@
 
         %dt.col-3 価格
         %dd.col-9.p-1= number_to_currency(@product.price)
+
+    -# TODO: リファクタ
+    - if user_signed_in? && @product.owned_by?(current_user)
+      .text-end= link_to '編集する', edit_users_product_path(@product), class: 'btn btn-primary'

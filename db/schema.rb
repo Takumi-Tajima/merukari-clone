@@ -22,7 +22,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_17_083056) do
     t.integer "user_id", null: false
     t.integer "category_id", null: false
     t.string "name", null: false
-    t.string "description", null: false
+    t.text "description", null: false
     t.integer "price", null: false
     t.boolean "sold", default: false, null: false
     t.datetime "created_at", null: false

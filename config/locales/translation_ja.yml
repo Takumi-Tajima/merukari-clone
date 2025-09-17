@@ -6,3 +6,8 @@ ja:
         zipcode: 郵便番号
         address: 住所
         phone_number: 電話番号
+      product:
+        name: 商品名
+        description: 商品説明
+        price: 価格
+        category_id: カテゴリー

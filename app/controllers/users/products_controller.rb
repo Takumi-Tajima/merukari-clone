@@ -9,7 +9,7 @@ class Users::ProductsController < Users::ApplicationController
   end
 
   def create
-    @product = current_user.products.build
+    @product = current_user.products.build(product_params)
     if @product.save
       redirect_to product_path(@product), notice: '商品を登録しました。'
     else

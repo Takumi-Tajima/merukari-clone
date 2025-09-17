@@ -7,4 +7,8 @@ class Product < ApplicationRecord
   validates :price, numericality: { only_integer: true, greater_than: 0 }
 
   scope :default_order, -> { order(:id) }
+
+  def owned_by?(user)
+    user_id == user.id
+  end
 end
