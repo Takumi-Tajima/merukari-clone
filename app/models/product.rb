@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_one :trade, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true

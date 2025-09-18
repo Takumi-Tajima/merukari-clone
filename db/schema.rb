@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_17_083056) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_17_234852) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -29,6 +29,26 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_17_083056) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.integer "buyer_id", null: false
+    t.integer "seller_id", null: false
+    t.integer "product_id", null: false
+    t.string "buyer_name", null: false
+    t.string "buyer_zipcode", null: false
+    t.text "buyer_address", null: false
+    t.string "buyer_phone_number", null: false
+    t.integer "selling_fee", null: false
+    t.integer "product_price", null: false
+    t.datetime "paid_at", null: false
+    t.datetime "shipping_at"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_trades_on_buyer_id"
+    t.index ["product_id"], name: "index_trades_on_product_id", unique: true
+    t.index ["seller_id"], name: "index_trades_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,4 +80,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_17_083056) do
 
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "trades", "products"
+  add_foreign_key "trades", "users", column: "buyer_id"
+  add_foreign_key "trades", "users", column: "seller_id"
 end
