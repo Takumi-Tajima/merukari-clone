@@ -10,7 +10,7 @@ class CreateTrades < ActiveRecord::Migration[8.0]
       t.string :buyer_phone_number, null: false
       t.integer :selling_fee, null: false
       t.integer :product_price, null: false
-      t.datetime :paid_at, null: false
+      t.datetime :confirmed_at, null: false
       t.datetime :shipping_at
       t.datetime :completed_at
 

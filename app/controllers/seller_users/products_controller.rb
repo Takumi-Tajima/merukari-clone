@@ -1,4 +1,4 @@
-class Users::ProductsController < Users::ApplicationController
+class SellerUsers::ProductsController < Users::ApplicationController
   before_action :set_product, only: %i[edit update destroy]
 
   def new

@@ -41,7 +41,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_09_17_234852) do
     t.string "buyer_phone_number", null: false
     t.integer "selling_fee", null: false
     t.integer "product_price", null: false
-    t.datetime "paid_at", null: false
+    t.datetime "confirmed_at", null: false
     t.datetime "shipping_at"
     t.datetime "completed_at"
     t.datetime "created_at", null: false
