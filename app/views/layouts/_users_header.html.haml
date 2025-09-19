@@ -2,9 +2,12 @@
   .container-fluid
     .d-flex.align-items-center
       .navbar-brand= link_to 'Merukari Clone', root_path, class: 'text-decoration-none'
+    %ul.navbar-nav.flex-row.gap-3.align-items-center
+      - if user_signed_in?
+        %li.nav-item= link_to '取引中の商品', buyer_users_trades_path, class: 'nav-link'
     %ul.navbar-nav.ms-auto.flex-row.gap-3.align-items-center
       - if user_signed_in?
         %li.nav-item= link_to current_user.name, edit_user_registration_path, class: 'text-decoration-none'
       - else
         %li.nav-item= link_to 'ログイン', new_user_session_path, class: 'nav-link'
-      %li.nav-item= link_to '出品', new_users_product_path, class: 'btn btn-danger'
+      %li.nav-item= link_to '出品', new_seller_users_product_path, class: 'btn btn-danger'

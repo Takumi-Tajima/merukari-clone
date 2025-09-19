@@ -183,9 +183,8 @@ ja:
     am: 午前
     pm: 午後
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%m/%d %H:%M"
       sec: "%Y/%m/%d %H:%M:%S"
       long: "%Y/%m/%d %H:%M"
-      short: "%m/%d %H:%M"
       csv: "%Y%m%d%H%M"
       date: "%Y/%m/%d"
