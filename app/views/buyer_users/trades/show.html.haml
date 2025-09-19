@@ -25,10 +25,4 @@
         %dd.col-9.p-1= @trade.seller.name
 
         %dt.col-3 取引状況
-        %dd.col-9.p-1
-          - if @trade.completed_at.present?
-            取引完了
-          - elsif @trade.shipping_at.present?
-            配送中
-          - elsif @trade.confirmed_at.present?
-            発送待ち
+        %dd.col-9.p-1= trade_status_tag(@trade)

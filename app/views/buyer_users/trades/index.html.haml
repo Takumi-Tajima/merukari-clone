@@ -1,6 +1,6 @@
 .row.justify-content-center
   .col-8
-    %h1.fs-2.mb-4 取引中の商品一覧
+    %h1.fs-2.mb-4 取引中の注文した商品
     %table.table
       %thead
         %tr
@@ -14,11 +14,4 @@
             %td= link_to trade.product.name, buyer_users_trade_path(trade)
             %td= number_to_currency(trade.product_price)
             %td= l(trade.confirmed_at)
-            -# TODO: リファクタ
-            %td
-              - if trade.completed_at.present?
-                取引完了
-              - elsif trade.shipping_at.present?
-                配送中
-              - elsif trade.confirmed_at.present?
-                発送待ち
+            %td= trade_status_tag(trade)

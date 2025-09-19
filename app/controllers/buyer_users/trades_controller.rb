@@ -1,4 +1,4 @@
-class BuyerUsers::TradesController < Users::ApplicationController
+class BuyerUsers::TradesController < BuyerUsers::ApplicationController
   def index
     @trades = current_user.trades_as_buyers.uncompleted.includes(:product).default_order
   end
