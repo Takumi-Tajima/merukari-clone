@@ -12,12 +12,11 @@
         %dt.col-3 価格
         %dd.col-9.p-1= number_to_currency(@product.price)
 
-    -# TODO: リファクタ
     .text-end
       - if user_signed_in? && @product.owned_by?(current_user)
         = link_to '編集する', edit_seller_users_product_path(@product), class: 'btn btn-primary'
       - else
         = button_to '購入する',
                     buyer_users_trades_path(product: @product),
-                    class: 'btn btn-primary',
+                    class: 'btn btn-danger',
                     data: { turbo_confirm: '購入してもよろしいですか？' }

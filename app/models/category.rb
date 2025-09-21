@@ -4,5 +4,9 @@ class Category < ApplicationRecord
   has_many :products, dependent: :restrict_with_exception
 
   # TODO: ソートは日本語の50音順にする
-  scope :default_order, -> { order(:id) }
+  scope :default_order, -> { order(:name) }
+
+  def self.for_select
+    default_order.pluck(:name, :id)
+  end
 end
