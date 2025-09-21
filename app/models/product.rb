@@ -10,8 +10,7 @@ class Product < ApplicationRecord
   scope :default_order, -> { order(:id) }
   scope :available_for_purchase, -> { where(sold: false) }
 
-  # TODO: リファクタ
-  def owned_by?(user)
+  def sold_by?(user)
     user_id == user.id
   end
 
