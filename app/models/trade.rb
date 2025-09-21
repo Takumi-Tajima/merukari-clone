@@ -39,6 +39,14 @@ class Trade < ApplicationRecord
     false
   end
 
+  def ship!
+    update!(shipping_at: Time.current)
+  end
+
+  def shipped?
+    shipping_at.present?
+  end
+
   private
 
   def calculate_selling_fee(product_price)

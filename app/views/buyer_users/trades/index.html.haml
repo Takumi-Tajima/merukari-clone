@@ -9,9 +9,9 @@
           %th 注文日時
           %th 取引状況
       %tbody
-        - @trades.each do |trade|
+        - @buyer_trades.each do |buyer_trade|
           %tr
-            %td= link_to trade.product.name, buyer_users_trade_path(trade)
-            %td= number_to_currency(trade.product_price)
-            %td= l(trade.confirmed_at)
-            %td= trade_status_tag(trade)
+            %td= link_to buyer_trade.product.name, buyer_users_trade_path(buyer_trade)
+            %td= number_to_currency(buyer_trade.product_price)
+            %td= l(buyer_trade.confirmed_at)
+            %td= trade_status_tag(buyer_trade)

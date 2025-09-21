@@ -1,10 +1,10 @@
 class BuyerUsers::TradesController < BuyerUsers::ApplicationController
   def index
-    @trades = current_user.trades_as_buyers.uncompleted.includes(:product).default_order
+    @buyer_trades = current_user.trades_as_buyers.uncompleted.includes(:product).default_order
   end
 
   def show
-    @trade = current_user.trades_as_buyers.uncompleted.find(params.expect(:id))
+    @buyer_trade = current_user.trades_as_buyers.uncompleted.find(params.expect(:id))
   end
 
   def create

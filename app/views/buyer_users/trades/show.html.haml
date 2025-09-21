@@ -4,25 +4,25 @@
     %dl.row
       .card.p-3
         %dt.col-3 商品名
-        %dd.col-9.p-1= @trade.product.name
+        %dd.col-9.p-1= @buyer_trade.product.name
 
         %dt.col-3 カテゴリー
-        %dd.col-9.p-1= @trade.product.category.name
+        %dd.col-9.p-1= @buyer_trade.product.category.name
 
         %dt.col-3 商品説明
-        %dd.col-9.p-1= @trade.product.description
+        %dd.col-9.p-1= @buyer_trade.product.description
 
         %dt.col-3 商品価格
-        %dd.col-9.p-1= number_to_currency(@trade.product_price)
+        %dd.col-9.p-1= number_to_currency(@buyer_trade.product_price)
 
         %dt.col-3 販売手数料
-        %dd.col-9.p-1= number_to_currency(@trade.selling_fee)
+        %dd.col-9.p-1= number_to_currency(@buyer_trade.selling_fee)
 
         %dt.col-3 注文確定日時
-        %dd.col-9.p-1= l(@trade.confirmed_at)
+        %dd.col-9.p-1= l(@buyer_trade.confirmed_at)
 
         %dt.col-3 出品者
-        %dd.col-9.p-1= @trade.seller.name
+        %dd.col-9.p-1= @buyer_trade.seller.name
 
         %dt.col-3 取引状況
-        %dd.col-9.p-1= trade_status_tag(@trade)
+        %dd.col-9.p-1= trade_status_tag(@buyer_trade)
