@@ -26,3 +26,11 @@
 
         %dt.col-3 取引状況
         %dd.col-9.p-1= trade_status_tag(@buyer_trade)
+
+    - if @buyer_trade.completed_at.nil? && @buyer_trade.shipping_at.present?
+      .text-end
+        = button_to '商品を受け取りました',
+                  buyer_users_trade_path(@buyer_trade),
+                  method: :patch,
+                  data: { turbo_confirm: '商品を受け取りましたか？' },
+                  class: 'btn btn-danger'

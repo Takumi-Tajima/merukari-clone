@@ -47,6 +47,10 @@ class Trade < ApplicationRecord
     shipping_at.present?
   end
 
+  def receive!
+    update!(completed_at: Time.current)
+  end
+
   private
 
   def calculate_selling_fee(product_price)
