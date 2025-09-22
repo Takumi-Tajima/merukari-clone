@@ -37,6 +37,6 @@ class SellerUsers::ProductsController < SellerUsers::ApplicationController
   end
 
   def product_params
-    params.expect(product: %i[category_id name description price])
+    params.expect(product: %i[category_id name description price image])
   end
 end

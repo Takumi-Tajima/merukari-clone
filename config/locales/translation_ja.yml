@@ -11,3 +11,4 @@ ja:
         description: 商品説明
         price: 価格
         category_id: カテゴリー
+        image: 商品画像
