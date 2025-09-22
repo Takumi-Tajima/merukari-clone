@@ -1,0 +1,35 @@
+.row.justify-content-center
+  .col-8
+    %h1.fs-2.mb-4 出品履歴詳細
+    %dl.row
+      .card.p-3
+        %dt.col-3 商品名
+        %dd.col-9.p-1= @seller_completed_trade.product.name
+
+        %dt.col-3 カテゴリー
+        %dd.col-9.p-1= @seller_completed_trade.product.category.name
+
+        %dt.col-3 商品説明
+        %dd.col-9.p-1= @seller_completed_trade.product.description
+
+        %dt.col-3 商品価格
+        %dd.col-9.p-1= number_to_currency(@seller_completed_trade.product_price)
+
+        %dt.col-3 販売手数料
+        %dd.col-9.p-1= number_to_currency(@seller_completed_trade.selling_fee)
+
+        %dt.col-3 注文確定日時
+        %dd.col-9.p-1= l(@seller_completed_trade.confirmed_at)
+
+        %dt.col-3 発送日時
+        %dd.col-9.p-1= @seller_completed_trade.shipping_at ? l(@seller_completed_trade.shipping_at) : '-'
+
+        %dt.col-3 取引完了日時
+        %dd.col-9.p-1= l(@seller_completed_trade.completed_at)
+
+        %dt.col-3 購入者
+        %dd.col-9.p-1= @seller_completed_trade.buyer.name
+
+        %dt.col-3 取引状況
+        %dd.col-9.p-1
+          %span.badge.bg-success 取引完了

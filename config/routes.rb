@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :seller_users do
     resources :products, only: %i[new edit create update destroy]
     resources :progressing_trades, only: %i[index show update]
+    resources :completed_trades, only: %i[index show]
   end
 
   namespace :buyer_users do
