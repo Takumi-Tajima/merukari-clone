@@ -19,6 +19,6 @@
         = link_to '編集する', edit_seller_users_product_path(@product), class: 'btn btn-primary'
       - else
         = button_to '購入する',
-                    buyer_users_trades_path(product: @product),
+                    buyer_users_progressing_trades_path(product: @product),
                     class: 'btn btn-danger',
                     data: { turbo_confirm: '購入してもよろしいですか？' }

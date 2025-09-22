@@ -4,8 +4,8 @@
       .navbar-brand= link_to 'Merukari Clone', root_path, class: 'text-decoration-none'
     %ul.navbar-nav.flex-row.gap-3.align-items-center
       - if user_signed_in?
-        %li.nav-item= link_to '【取引中】注文した商品', buyer_users_trades_path, class: 'nav-link'
-        %li.nav-item= link_to '【取引中】出品した商品', seller_users_trades_path, class: 'nav-link'
+        %li.nav-item= link_to '【取引中】注文した商品', buyer_users_progressing_trades_path, class: 'nav-link'
+        %li.nav-item= link_to '【取引中】出品した商品', seller_users_progressing_trades_path, class: 'nav-link'
     %ul.navbar-nav.ms-auto.flex-row.gap-3.align-items-center
       - if user_signed_in?
         %li.nav-item= link_to current_user.name, edit_user_registration_path, class: 'text-decoration-none'

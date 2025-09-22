@@ -1,0 +1,17 @@
+.row.justify-content-center
+  .col-8
+    %h1.fs-2.mb-4 取引中の出品した商品
+    %table.table
+      %thead
+        %tr
+          %th 商品名
+          %th 金額
+          %th 注文日時
+          %th 取引状況
+      %tbody
+        - @seller_progressing_trades.each do |trade|
+          %tr
+            %td= link_to trade.product.name, seller_users_progressing_trade_path(trade)
+            %td= number_to_currency(trade.product_price)
+            %td= l(trade.confirmed_at)
+            %td= trade_status_tag(trade)

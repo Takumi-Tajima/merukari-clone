@@ -7,11 +7,12 @@ Rails.application.routes.draw do
 
   namespace :seller_users do
     resources :products, only: %i[new edit create update destroy]
-    resources :trades, only: %i[index show update]
+    resources :progressing_trades, only: %i[index show update]
   end
 
   namespace :buyer_users do
-    resources :trades, only: %i[index show create update]
+    resources :progressing_trades, only: %i[index show create update]
+    resources :completed_trades, only: %i[index show]
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check
