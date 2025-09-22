@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.available_for_purchase.default_order
+    @products = Product.available_for_purchase.includes(:image_attachment).default_order
   end
 
   def show

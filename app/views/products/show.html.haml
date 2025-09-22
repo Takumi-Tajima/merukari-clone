@@ -1,6 +1,8 @@
 .row.justify-content-center
   .col-7
     %h1.fs-2.mb-4 #{@product.name} 詳細
+    .mb-4.text-center
+      = product_image_tag(@product, :display)
     %dl.row
       .card.p-3
         %dt.col-3 商品名

@@ -4,6 +4,8 @@
       .card
         = link_to product_path(product), class: 'text-decoration-none text-body' do
           .card-body
-            .card-title.fs-4= product.name
-            %p.card-title.fs-5= truncate(product.description, length: 30)
+            .ratio.ratio-4x3
+              = product_image_tag(product, :thumbnail)
+            .card-title.fs-5= product.name
+            %p.card-title.fs-6= truncate(product.description, length: 30)
             .card-text= number_to_currency(product.price)
