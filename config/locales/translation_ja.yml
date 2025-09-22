@@ -10,5 +10,6 @@ ja:
         name: 商品名
         description: 商品説明
         price: 価格
+        category: カテゴリー
         category_id: カテゴリー
         image: 商品画像
