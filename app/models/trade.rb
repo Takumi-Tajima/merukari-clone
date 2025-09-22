@@ -15,6 +15,7 @@ class Trade < ApplicationRecord
   validates :product_price, numericality: { only_integer: true, greater_than: 0 }
 
   scope :default_order, -> { order(:id) }
+  scope :completed, -> { where.not(completed_at: nil) }
   scope :uncompleted, -> { where(completed_at: nil) }
 
   def save_as_confirmed_purchase

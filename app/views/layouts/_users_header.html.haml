@@ -8,6 +8,7 @@
         %li.nav-item= link_to '【取引中】出品した商品', seller_users_progressing_trades_path, class: 'nav-link'
     %ul.navbar-nav.ms-auto.flex-row.gap-3.align-items-center
       - if user_signed_in?
+        %li.nav-item= link_to '購入履歴', buyer_users_completed_trades_path, class: 'nav-link'
         %li.nav-item= link_to current_user.name, edit_user_registration_path, class: 'text-decoration-none'
       - else
         %li.nav-item= link_to 'ログイン', new_user_session_path, class: 'nav-link'
