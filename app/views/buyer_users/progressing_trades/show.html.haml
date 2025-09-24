@@ -1,6 +1,8 @@
 .row.justify-content-center
   .col-8
     %h1.fs-2.mb-4 取引詳細
+    .mb-4.text-center
+      = product_image_tag(@buyer_progressing_trade.product, :display)
     %dl.row
       .card.p-3
         %dt.col-3 商品名

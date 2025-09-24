@@ -391,7 +391,7 @@ DEPENDENCIES
   letter_opener_web
   propshaft
   puma
-  rails (~> 8.0.2, >= 8.0.2.1)
+  rails (~> 8.0.2)
   sgcop!
   simple_form
   sqlite3

@@ -21,6 +21,9 @@ class Product < ApplicationRecord
   validate :validate_image_type
   validate :validate_image_size
 
+  before_update :validate_not_sold
+  before_destroy :validate_not_sold
+
   scope :default_order, -> { order(:id) }
   scope :available_for_purchase, -> { where(sold: false) }
 
@@ -47,6 +50,13 @@ class Product < ApplicationRecord
 
     if image.blob.byte_size > IMAGE_SETTINGS[:max_size]
       errors.add(:image, "画像のサイズは#{IMAGE_SETTINGS[:max_size] / 1.megabyte}MB以下にしてください")
+    end
+  end
+
+  def validate_not_sold
+    if sold?
+      errors.add(:base, '売却済みの商品は変更・削除できません')
+      throw :abort
     end
   end
 end
