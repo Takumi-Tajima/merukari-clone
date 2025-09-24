@@ -10,7 +10,7 @@ class SellerUsers::ProgressingTradesController < SellerUsers::ApplicationControl
 
   def update
     @seller_progressing_trade.ship!
-    # TODO: メール送信処理
+    BuyerMailer.product_shipped_notification(@seller_progressing_trade).deliver_later
     redirect_to seller_users_progressing_trade_path(@seller_progressing_trade), notice: '発送が完了しました。ユーザーが商品を受け取るまでお待ちください。'
   end
 

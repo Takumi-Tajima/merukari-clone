@@ -1,0 +1,28 @@
+%p #{@trade.seller.name} 様
+
+%p お取引が完了しました。以下の内容をご確認ください。
+
+%p =====================================================
+
+%p 注文された商品の情報
+
+%p 商品名：#{@trade.product.name}
+%p 価格：#{number_to_currency(@trade.product_price)}
+%p 注文者：#{@trade.buyer.name}
+%p 注文日時：#{l(@trade.confirmed_at)}
+%p 発送日時：#{l(@trade.shipping_at)}
+%p 取引完了日時：#{l(@trade.completed_at)}
+
+%p =====================================================
+
+%p お振込詳細
+
+%p 商品金額：#{number_to_currency(@trade.product_price)}
+%p 販売手数料：#{number_to_currency(@trade.selling_fee)}
+
+%p 振込金額：#{number_to_currency(@trade.product_price - @trade.selling_fee)}
+
+%p =====================================================
+
+%p お取引は以上となります。ありがとうございました。
+%p ご不明点等ございましたら、運営までお問い合わせください。

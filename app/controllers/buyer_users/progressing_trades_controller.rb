@@ -13,6 +13,7 @@ class BuyerUsers::ProgressingTradesController < BuyerUsers::ApplicationControlle
     @trade = current_user.trades_as_buyers.build(product:)
 
     if @trade.save_as_confirmed_purchase
+      SellerMailer.product_purchased_notification(@trade).deliver_later
       redirect_to buyer_users_progressing_trade_path(@trade), notice: '商品の購入が完了しました。'
     else
       redirect_to product_path(params.expect(:product)), status: :unprocessable_content, alert: '商品の購入に失敗しました。'
@@ -21,7 +22,7 @@ class BuyerUsers::ProgressingTradesController < BuyerUsers::ApplicationControlle
 
   def update
     @buyer_progressing_trade.receive!
-    # TODO: 購入履歴に飛ばすが、一旦トップへ
+    SellerMailer.trade_completed_notification(@buyer_progressing_trade).deliver_later
     redirect_to products_path, notice: '取引が完了しました。ご利用ありがとうございました。'
   end
 
